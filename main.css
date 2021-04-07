@@ -1,0 +1,304 @@
+body {
+    overflow-x: hidden;
+}
+
+.header {
+    height: 370px;
+    width: 100%;
+}
+
+.header > img {
+    margin-left: -950px;
+    display: block;
+    width: 1920px;
+    height: 370px;
+    left: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.topmenu {
+    background: #ff8d3f;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    height: 6.375rem;
+}
+
+.topmenu .container {
+    height: inherit;
+    margin-left: 5%;
+    width: 100%;
+}
+
+.logo {
+    position: relative;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+}
+.logo p {
+    display: inline-block;
+    line-height: 4rem;
+    color: #fff;
+    font-weight: 700;
+}
+.logo img {
+    display: inline-block;
+    width: 170px;
+    vertical-align: middle;
+}
+.topnav {
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topnav > ul {
+    display: inline-block;
+}
+
+.topnav > ul > li {
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 10px;
+    color: #fff;
+}
+
+.topnav > ul > li:hover {
+    color: yellow;
+}
+
+#firstitem {
+    border-radius: 15% 0 0 15%;
+}
+
+#lastitem {
+    border-radius: 0 15% 15% 0;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    background: #26bbad;
+    padding: 0.75rem;
+    text-align: center;
+}
+
+.topnav > ul > li:hover .dropdown {
+    display: block;
+}
+
+.dropdown > li {
+    padding: 0.75rem 0.25rem;
+}
+
+.dropdown-content {
+    text-decoration: none;
+    color: #fff;
+}
+
+.dropdown-content:hover {
+    color: red;
+}
+
+.middlebar {
+    width: 100%;
+    height: 3.75rem;
+    background: #575d6d;
+}
+
+.middlebar > p {
+    line-height: 3.75rem;
+    margin-left: 15px;
+    color: #fff;
+}
+
+/* 980px미만 */
+@media screen and (max-width: 979px) {
+    .mainwrapper {
+        padding-top: 2rem;
+        width: 95%;
+        margin: 0 auto;
+        padding-bottom: 2rem;
+    }
+    .snbwrap {
+        display: none;
+    }
+    .topnav {
+        display: none;
+    }
+}
+
+/* 1200px 미만일때 */
+@media screen and (min-width: 980px) and (max-width: 1099px) {
+    .mainwrapper {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .mainwrapper .snbwrap {
+        float: left;
+        width: 16.25rem;
+    }
+    .mainwrapper .contentwrap {
+        display: inline-block;
+        width: 70%;
+        padding-left: 20px;
+    }
+}
+
+/* 1200px 이상일때 */
+@media screen and (min-width: 1100px) {
+    .mainwrapper {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 1100px;
+        margin: 0 auto;
+    }
+
+    .mainwrapper .snbwrap {
+        width: 16.25rem;
+        float: left;
+    }
+    .mainwrapper .contentwrap {
+        display: inline-block;
+        width: 50rem;
+        padding-left: 20px;
+    }
+}
+
+.snbtitle {
+    height: 5.813rem;
+    display: block;
+    text-align: center;
+    border: 2px solid #000;
+    border-bottom: 0px;
+}
+
+.snbtitle > div {
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+    font-weight: 700;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.snblist {
+    border: 1px solid #000;
+}
+
+.snblist :hover {
+    background: #ff8d3f;
+    color: #fff;
+    box-shadow: 5px 5px 5px black;
+}
+
+.snblist > li {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #000;
+}
+
+.contentwrap {
+    line-height: normal;
+}
+
+.slogan {
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 46px;
+    padding-bottom: 36px;
+    margin-bottom: 50px;
+    letter-spacing: -0.15rem;
+}
+.slogan > span {
+    color: #00a6f7;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 30px;
+    color: #333333;
+    letter-spacing: -1px;
+}
+
+.bullettitle {
+    margin: 0 0 10px 0;
+    padding-left: 30px;
+    color: #333333;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 600;
+    background-image: url(./public/bul.png);
+    background-repeat: no-repeat;
+    background-position: left 3px;
+    background-size: 18px 18px;
+    word-break: keep-all;
+}
+
+.content {
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+.inner-word {
+    padding-left: 30px;
+    padding-bottom: 20px;
+    color: #666666;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+    word-break: keep-all;
+}
+
+.ul-list01 {
+    padding-left: 30px;
+}
+
+.ul-list01 > li {
+    padding-left: 12px;
+    color: #999999;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+    background-image: url(https://cs.kumoh.ac.kr/_common/img/bullet_type01/bul_type0103.png);
+    background-repeat: no-repeat;
+    background-position: left 10px;
+    background-size: 3px 3px;
+}
+
+.footerwarpper .container {
+    width: 100%;
+    height: 6rem;
+    background: #a0a0a0;
+}
+
+.footerwarpper .container > ul {
+    text-align: left;
+}
+
+.footerwarpper .container > ul > li {
+    text-align: center;
+    display: inline-block;
+    border-right: 1px solid #000;
+    padding: 0 1rem 0 1rem;
+    margin: 1rem 0;
+}
+
+#footerlast {
+    border-right: 0px;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    margin-left: 1rem;
+}
