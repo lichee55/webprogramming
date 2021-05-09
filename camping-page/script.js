@@ -20,7 +20,6 @@ function currentSlide(n) {
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName('mySlides');
-    var dots = document.getElementsByClassName('dot');
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -30,9 +29,38 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = 'none';
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(' active', '');
-    }
     slides[slideIndex - 1].style.display = 'block';
-    dots[slideIndex - 1].className += ' active';
+}
+
+let acc = document.getElementsByClassName('accordion');
+let i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function () {
+        if (this.classList.contains('active')) {
+            this.classList.toggle('active');
+            let panel = this.nextElementSibling;
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+            }
+        } else {
+            let sibling = this.parentElement.children;
+            for (let i = 0; i < sibling.length; i++) {
+                if (sibling[i].classList.contains('panel')) {
+                    sibling[i].style.display = 'none';
+                } else {
+                    sibling[i].classList.remove('active');
+                }
+            }
+            this.classList.add('active');
+            let panel = this.nextElementSibling;
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+            } else {
+                panel.style.display = 'block';
+            }
+        }
+    });
 }
