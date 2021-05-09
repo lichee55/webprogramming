@@ -80,16 +80,28 @@ function selectList() {
         }
     }
     if (selectValue === 'A') {
-        list.innerHTML +=
-            '<div class="listElement"><div class="type" hidden>A</div><span>A . 스피드 원터치 팝업텐트 (3~4인용)</span><input type="text" size="4" disabled value="1" /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">39800</span>원</div>';
+        let object = document.createElement('div');
+        object.setAttribute('id', 'objectA');
+        object.setAttribute('class', 'listElement');
+        object.innerHTML +=
+            '<div class="type" hidden>A</div><span>A . 스피드 원터치 팝업텐트 (3~4인용)</span><input type="text" value="1" disabled  size=4 /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">39800</span>원';
+        document.querySelector('.list').appendChild(object);
         return;
     } else if (selectValue === 'B') {
-        list.innerHTML +=
-            '<div class="listElement"><div class="type" hidden>B</div><span>B . 5초 원터치 텐트 (3인용) (+10,000원)</span><input type="text" size="4" disabled value="1" /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">49800</span>원</div>';
+        let object = document.createElement('div');
+        object.setAttribute('id', 'objectB');
+        object.setAttribute('class', 'listElement');
+        object.innerHTML +=
+            '<div class="type" hidden>B</div><span>B . 5초 원터치 텐트 (3인용) (+10,000원)</span><input type="text" value="1" disabled  size=4 /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">49800</span>원';
+        document.querySelector('.list').appendChild(object);
         return;
     } else if (selectValue === 'C') {
-        list.innerHTML +=
-            '<div class="listElement"><div class="type" hidden>C</div><span>C . 5초 원터치 텐트 (3인용) (+20,000원)</span><input type="text" size="4" disabled value="1" /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">59800</span>원</div>';
+        let object = document.createElement('div');
+        object.setAttribute('id', 'objectC');
+        object.setAttribute('class', 'listElement');
+        object.innerHTML +=
+            '<div class="type" hidden>C</div><span>C . 5초 원터치 텐트 (3인용) (+20,000원)</span><input type="text" value="1" disabled  size=4 /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">59800</span>원';
+        document.querySelector('.list').appendChild(object);
         return;
     }
 }
@@ -112,27 +124,32 @@ list.onclick = function (e) {
 };
 
 function clickPlus(target) {
-    let parent = target.parentElement;
-    let val = Number(parent.children[2].value);
+    let count = target.parentElement.children[2].value;
+    let type = target.parentElement.children[0].textContent;
+    let totalCost = target.parentElement.children[6].textContent;
+    let val = Number(count);
     val += 1;
-    val += '';
-    parent.children[2].value = val;
-    console.log(parent.children[2]);
-    console.log(parent.children[2].value);
 
-    if (parent.children[0].textContent === 'A') {
+    if (type === 'A') {
         let total = 39800 * val;
-        parent.children[6].textContent = total;
+        let object = document.querySelector('#objectA');
+        object.children[2].value = val;
+        object.children[6].textContent = total;
         return;
     }
-    if (parent.children[0].textContent === 'B') {
+    if (type === 'B') {
         let total = 49800 * val;
-        parent.children[6].textContent = total;
+        let object = document.querySelector('#objectB');
+
+        object.children[2].value = val;
+        object.children[6].textContent = total;
         return;
     }
-    if (parent.children[0].textContent === 'C') {
+    if (type === 'C') {
         let total = 59800 * val;
-        parent.children[6].textContent = total;
+        let object = document.querySelector('#objectC');
+        object.children[2].value = val;
+        object.children[6].textContent = total;
         return;
     }
     return;
