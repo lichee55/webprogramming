@@ -86,7 +86,6 @@ function selectList() {
         object.innerHTML +=
             '<div class="type" hidden>A</div><span>A . 스피드 원터치 팝업텐트 (3~4인용)</span><input type="text" value="1" disabled  size=4 /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">39800</span>원';
         document.querySelector('.list').appendChild(object);
-        return;
     } else if (selectValue === 'B') {
         let object = document.createElement('div');
         object.setAttribute('id', 'objectB');
@@ -94,7 +93,6 @@ function selectList() {
         object.innerHTML +=
             '<div class="type" hidden>B</div><span>B . 5초 원터치 텐트 (3인용) (+10,000원)</span><input type="text" value="1" disabled  size=4 /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">49800</span>원';
         document.querySelector('.list').appendChild(object);
-        return;
     } else if (selectValue === 'C') {
         let object = document.createElement('div');
         object.setAttribute('id', 'objectC');
@@ -102,13 +100,10 @@ function selectList() {
         object.innerHTML +=
             '<div class="type" hidden>C</div><span>C . 5초 원터치 텐트 (3인용) (+20,000원)</span><input type="text" value="1" disabled  size=4 /><button class="plus">+</button><button class="minus">-</button><button class="delete">x</button><span class="total">59800</span>원';
         document.querySelector('.list').appendChild(object);
-        return;
     }
+    totalCost();
+    return;
 }
-
-// function listHandler() {
-//     console.log();
-// }
 
 let list = document.querySelector('.list');
 list.onclick = function (e) {
@@ -126,7 +121,6 @@ list.onclick = function (e) {
 function clickPlus(target) {
     let count = target.parentElement.children[2].value;
     let type = target.parentElement.children[0].textContent;
-    let totalCost = target.parentElement.children[6].textContent;
     let val = Number(count);
     val += 1;
 
@@ -135,25 +129,22 @@ function clickPlus(target) {
         let object = document.querySelector('#objectA');
         object.children[2].value = val;
         object.children[6].textContent = total;
-        return;
-    }
-    if (type === 'B') {
+    } else if (type === 'B') {
         let total = 49800 * val;
         let object = document.querySelector('#objectB');
 
         object.children[2].value = val;
         object.children[6].textContent = total;
-        return;
-    }
-    if (type === 'C') {
+    } else if (type === 'C') {
         let total = 59800 * val;
         let object = document.querySelector('#objectC');
         object.children[2].value = val;
         object.children[6].textContent = total;
-        return;
     }
+    totalCost();
     return;
 }
+
 function clickMinus(target) {
     let parent = target.parentElement;
     let val = Number(parent.children[2].value);
@@ -164,21 +155,30 @@ function clickMinus(target) {
     if (parent.children[0].textContent === 'A') {
         let total = 39800 * val;
         parent.children[6].textContent = total;
-        return;
-    }
-    if (parent.children[0].textContent === 'B') {
+    } else if (parent.children[0].textContent === 'B') {
         let total = 49800 * val;
         parent.children[6].textContent = total;
-        return;
-    }
-    if (parent.children[0].textContent === 'C') {
+    } else if (parent.children[0].textContent === 'C') {
         let total = 59800 * val;
         parent.children[6].textContent = total;
-        return;
     }
+    totalCost();
+    return;
 }
 function clickDelete(target) {
     let parent = target.parentElement;
     document.querySelector('#order').selectedIndex = 0;
     parent.remove();
+    totalCost();
+    return;
+}
+
+function totalCost() {
+    let list = document.querySelector('.list').children;
+    let total = 0;
+    for (let i = 0; i < list.length; i++) {
+        total += list[i].children[6].textContent * 1;
+    }
+    console.log(document.querySelector('.total-cost'));
+    document.querySelector('.total-cost').textContent = total;
 }
