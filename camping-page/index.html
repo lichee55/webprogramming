@@ -42,29 +42,31 @@
             </div>
             <div class="details-container">
                 <span>알프랑 그늘막 팝업 스피드 원터치 텐트</span>
-                <button class="accordion">Section 1</button>
+                <button class="accordion">판매자 정보</button>
                 <div class="panel">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                    <p>금오공과대학교 <br />소프트웨어공학과 <br />최영빈 <br /></p>
                 </div>
 
-                <button class="accordion">Section 2</button>
+                <button class="accordion">상품 정보</button>
                 <div class="panel">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                    <p>최신 텐트 <br />원터치 <br />방수 <br /></p>
                 </div>
 
-                <button class="accordion">Section 3</button>
+                <button class="accordion">주문 정보</button>
                 <div class="panel">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                    <select name="order" id="order" onchange="selectList()">
+                        <option id="selectbox-default" value="" selected disabled hidden>선택</option>
+                        <option value="A">A . 스피드 원터치 팝업텐트 (3~4인용)</option>
+                        <option value="B">B . 5초 원터치 텐트 (3인용) (+10,000원)</option>
+                        <option value="C">C . 5초 원터치 텐트 (3인용) (+20,000원)</option>
+                    </select>
+                    <div class="order">
+                        주문 리스트
+                        <div class="list"></div>
+                    </div>
                 </div>
+                <div>총 상품금액 <span class="total">123</span> 원</div>
+                <button>구매하기</button>
             </div>
         </div>
         <br />
